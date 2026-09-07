@@ -26,3 +26,11 @@ export const authenticate = (req: AuthRequest, _res: Response, next: NextFunctio
     throw new ApiError(401, "Invalid or expired token");
   }
 };
+
+export const authorize = (...roles: string[]) =>
+  (req: AuthRequest, _res: Response, next: NextFunction) => {
+    if (!req.user || !roles.includes(req.user.role)) {
+      throw new ApiError(403, "You do not have permission for this action");
+    }
+    next();
+  };
