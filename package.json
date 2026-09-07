@@ -7,17 +7,18 @@
     "@types/node": "^26.5.0",
     "@types/pg": "^8.23.1",
     "prisma": "^7.10.0",
+    "tsc-alias": "^1.9.4",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "scripts": {
-  "dev": "tsx watch src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "prisma:migrate": "prisma migrate dev",
-  "prisma:seed": "tsx prisma/seed.ts"
-},
-"type": "module",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "type": "module",
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.10.0",

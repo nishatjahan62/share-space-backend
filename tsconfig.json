@@ -41,6 +41,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
+  "include": ["src", "prisma/seed.ts"]
 }
+
 
 
