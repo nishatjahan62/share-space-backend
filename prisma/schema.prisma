@@ -11,3 +11,169 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum Role {
+  ADMIN
+  OWNER
+  TENANT
+}
+
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  RESERVED
+}
+
+enum ApplicationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  WITHDRAWN
+}
+
+enum ViewingStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+  COMPLETED
+}
+
+enum TenancyStatus {
+  ACTIVE
+  ENDED
+  TERMINATED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  OVERDUE
+  FAILED
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String?
+  googleId     String?   @unique
+  role         Role      @default(TENANT)
+  phone        String?
+  isVerified   Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  properties      Property[]
+  roommateProfile RoommateProfile?
+  applications    Application[]
+  viewingRequests ViewingRequest[]
+  tenancies       Tenancy[]
+
+  @@index([role])
+}
+
+model Property {
+  id          String    @id @default(cuid())
+  ownerId     String
+  owner       User      @relation(fields: [ownerId], references: [id])
+  title       String
+  address     String
+  city        String
+  description String?
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  rooms Room[]
+
+  @@index([city])
+  @@index([ownerId])
+}
+
+model Room {
+  id                String     @id @default(cuid())
+  propertyId        String
+  property          Property   @relation(fields: [propertyId], references: [id])
+  roomNumber        String
+  rentAmount        Int
+  capacity          Int
+  currentOccupancy  Int        @default(0)
+  status            RoomStatus @default(AVAILABLE)
+  deletedAt         DateTime?
+
+  applications    Application[]
+  viewingRequests ViewingRequest[]
+  tenancies       Tenancy[]
+
+  @@index([propertyId])
+  @@index([status])
+}
+
+model RoommateProfile {
+  id                String @id @default(cuid())
+  userId            String @unique
+  user              User   @relation(fields: [userId], references: [id])
+  budgetMin         Int
+  budgetMax         Int
+  preferredCity     String
+  lifestyleTags     String[]
+  bio               String?
+}
+
+model ViewingRequest {
+  id            String        @id @default(cuid())
+  roomId        String
+  room          Room          @relation(fields: [roomId], references: [id])
+  tenantId      String
+  tenant        User          @relation(fields: [tenantId], references: [id])
+  requestedDate DateTime
+  status        ViewingStatus @default(PENDING)
+  createdAt     DateTime      @default(now())
+
+  @@index([roomId])
+  @@index([tenantId])
+}
+
+model Application {
+  id         String            @id @default(cuid())
+  roomId     String
+  room       Room              @relation(fields: [roomId], references: [id])
+  tenantId   String
+  tenant     User              @relation(fields: [tenantId], references: [id])
+  status     ApplicationStatus @default(PENDING)
+  moveInDate DateTime
+  message    String?
+  createdAt  DateTime          @default(now())
+
+  @@index([roomId])
+  @@index([tenantId])
+  @@index([status])
+}
+
+model Tenancy {
+  id          String        @id @default(cuid())
+  roomId      String
+  room        Room          @relation(fields: [roomId], references: [id])
+  tenantId    String
+  tenant      User          @relation(fields: [tenantId], references: [id])
+  startDate   DateTime
+  monthlyRent Int
+  status      TenancyStatus @default(ACTIVE)
+
+  rentPayments RentPayment[]
+
+  @@index([roomId])
+  @@index([tenantId])
+}
+
+model RentPayment {
+  id          String        @id @default(cuid())
+  tenancyId   String
+  tenancy     Tenancy       @relation(fields: [tenancyId], references: [id])
+  amount      Int
+  dueDate     DateTime
+  paidAt      DateTime?
+  status      PaymentStatus @default(PENDING)
+  gatewayRef  String?
+
+  @@index([tenancyId])
+}
