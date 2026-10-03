@@ -4,7 +4,7 @@ import { validate } from "../../middlewares/validate.js";
 import { createPropertySchema, updatePropertySchema, listPropertiesSchema } from "../../modules/property/property.validation.js";
 import * as ctrl from "../../modules/property/property.controller.js";
 
-const router = Router();
+const router = Router(); 
 
 router.get("/search", ctrl.searchProperties);
 router.get("/", validate(listPropertiesSchema), ctrl.listProperties);
