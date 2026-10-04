@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import { OAuth2Client } from "google-auth-library";
 import { prisma } from "../../config/prisma.js";
 import { ApiError } from "../../../src/utils/ApiError.js";
 import { signAccessToken, signRefreshToken, verifyRefreshToken } from "../../../src/utils/token.js";
@@ -38,3 +39,36 @@ const issueTokens = (userId: string, role: string) => ({
   accessToken: signAccessToken({ userId, role }),
   refreshToken: signRefreshToken({ userId, role }),
 });
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID as string;
+const googleClient = new OAuth2Client(GOOGLE_CLIENT_ID);
+
+export const loginWithGoogle = async (idToken: string, role: "OWNER" | "TENANT") => {
+  const ticket = await googleClient.verifyIdToken({
+    idToken,
+    audience: GOOGLE_CLIENT_ID,
+  });
+
+  const payload = ticket.getPayload();
+  if (!payload?.email) throw new ApiError(401, "Invalid Google token");
+
+  let user = await prisma.user.findFirst({
+    where: { OR: [{ googleId: payload.sub }, { email: payload.email }] },
+  });
+
+  if (!user) {
+    user = await prisma.user.create({
+      data: {
+        name: payload.name || payload.email,
+        email: payload.email,
+        googleId: payload.sub,
+        role,
+        isVerified: true,
+      },
+    });
+  } else if (!user.googleId) {
+    user = await prisma.user.update({ where: { id: user.id }, data: { googleId: payload.sub } });
+  }
+
+  return issueTokens(user.id, user.role);
+};

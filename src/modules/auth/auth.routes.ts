@@ -1,18 +1,15 @@
-import type { Request, Response, NextFunction } from "express";
-import {  ZodError } from "zod";
-import { ApiResponse } from "../../utils/ApiResponse.js";
-import type { ZodTypeAny } from "zod/v3";
+import { Router } from "express";
+import { validate } from "../../middlewares/validate.js";
+import { registerSchema, loginSchema ,googleLoginSchema } from "../../modules/auth/auth.validation.js";
+import { register, login, refresh, logout,googleLogin } from "../../modules/auth/auth.controller.js";
 
- const validate = (schema: ZodTypeAny) =>
-  (req: Request, res: Response, next: NextFunction) => {
-    try {
-      schema.parse({ body: req.body, params: req.params, query: req.query });
-      next();
-    } catch (err) {
-      if (err instanceof ZodError) {
-        return res.status(400).json(ApiResponse.error("Validation failed", err.issues));
-      }
-      next(err);
-    }
-  };
-  export default validate
+
+const router = Router();
+
+router.post("/register", validate(registerSchema), register);
+router.post("/login", validate(loginSchema), login);
+router.post("/refresh-token", refresh);
+router.post("/logout", logout);
+router.post("/google", validate(googleLoginSchema), googleLogin);
+
+export default router;

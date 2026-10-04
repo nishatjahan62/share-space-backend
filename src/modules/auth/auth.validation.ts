@@ -15,3 +15,10 @@ export const loginSchema = z.object({
     password: z.string().min(6),
   }),
 });
+
+export const googleLoginSchema = z.object({
+  body: z.object({
+    idToken: z.string().min(10),
+    role: z.enum(["OWNER", "TENANT"]).default("TENANT"),
+  }),
+});
