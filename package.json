@@ -8,16 +8,18 @@
     "@types/pg": "^8.23.1",
     "prisma": "^7.10.0",
     "tsc-alias": "^1.9.4",
-    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
-  "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "tsx prisma/seed.ts"
-  },
+ "scripts": {
+  "dev": "tsx watch src/server.ts",
+  "start": "tsx src/server.ts",
+  "typecheck": "tsc --noEmit",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev",
+  "prisma:deploy": "prisma migrate deploy",
+  "prisma:seed": "tsx prisma/seed.ts",
+  "prisma:studio": "prisma studio"
+},
   "type": "module",
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
@@ -32,6 +34,7 @@
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.23.0",
     "stripe": "^23.0.0",
+    "tsx": "^4.23.15",
     "zod": "^4.5.4"
   }
 }
