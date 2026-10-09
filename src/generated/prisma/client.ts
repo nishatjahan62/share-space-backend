@@ -81,3 +81,23 @@ export type Tenancy = Prisma.TenancyModel
  * 
  */
 export type RentPayment = Prisma.RentPaymentModel
+/**
+ * Model UtilityBill
+ * 
+ */
+export type UtilityBill = Prisma.UtilityBillModel
+/**
+ * Model BillSplit
+ * 
+ */
+export type BillSplit = Prisma.BillSplitModel
+/**
+ * Model MaintenanceRequest
+ * 
+ */
+export type MaintenanceRequest = Prisma.MaintenanceRequestModel
+/**
+ * Model AuditLog
+ * 
+ */
+export type AuditLog = Prisma.AuditLogModel

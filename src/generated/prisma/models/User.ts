@@ -227,6 +227,8 @@ export type UserWhereInput = {
   applications?: Prisma.ApplicationListRelationFilter
   viewingRequests?: Prisma.ViewingRequestListRelationFilter
   tenancies?: Prisma.TenancyListRelationFilter
+  billSplits?: Prisma.BillSplitListRelationFilter
+  maintenanceRequests?: Prisma.MaintenanceRequestListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -245,6 +247,8 @@ export type UserOrderByWithRelationInput = {
   applications?: Prisma.ApplicationOrderByRelationAggregateInput
   viewingRequests?: Prisma.ViewingRequestOrderByRelationAggregateInput
   tenancies?: Prisma.TenancyOrderByRelationAggregateInput
+  billSplits?: Prisma.BillSplitOrderByRelationAggregateInput
+  maintenanceRequests?: Prisma.MaintenanceRequestOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -266,6 +270,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   applications?: Prisma.ApplicationListRelationFilter
   viewingRequests?: Prisma.ViewingRequestListRelationFilter
   tenancies?: Prisma.TenancyListRelationFilter
+  billSplits?: Prisma.BillSplitListRelationFilter
+  maintenanceRequests?: Prisma.MaintenanceRequestListRelationFilter
 }, "id" | "email" | "googleId">
 
 export type UserOrderByWithAggregationInput = {
@@ -316,6 +322,8 @@ export type UserCreateInput = {
   applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -334,6 +342,8 @@ export type UserUncheckedCreateInput = {
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserUpdateInput = {
@@ -352,6 +362,8 @@ export type UserUpdateInput = {
   applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -370,6 +382,8 @@ export type UserUncheckedUpdateInput = {
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -549,6 +563,34 @@ export type UserUpdateOneRequiredWithoutTenanciesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTenanciesInput, Prisma.UserUpdateWithoutTenanciesInput>, Prisma.UserUncheckedUpdateWithoutTenanciesInput>
 }
 
+export type UserCreateNestedOneWithoutBillSplitsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBillSplitsInput, Prisma.UserUncheckedCreateWithoutBillSplitsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBillSplitsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutBillSplitsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBillSplitsInput, Prisma.UserUncheckedCreateWithoutBillSplitsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBillSplitsInput
+  upsert?: Prisma.UserUpsertWithoutBillSplitsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBillSplitsInput, Prisma.UserUpdateWithoutBillSplitsInput>, Prisma.UserUncheckedUpdateWithoutBillSplitsInput>
+}
+
+export type UserCreateNestedOneWithoutMaintenanceRequestsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedCreateWithoutMaintenanceRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMaintenanceRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMaintenanceRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedCreateWithoutMaintenanceRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMaintenanceRequestsInput
+  upsert?: Prisma.UserUpsertWithoutMaintenanceRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMaintenanceRequestsInput, Prisma.UserUpdateWithoutMaintenanceRequestsInput>, Prisma.UserUncheckedUpdateWithoutMaintenanceRequestsInput>
+}
+
 export type UserCreateWithoutPropertiesInput = {
   id?: string
   name: string
@@ -564,6 +606,8 @@ export type UserCreateWithoutPropertiesInput = {
   applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateWithoutPropertiesInput = {
@@ -581,6 +625,8 @@ export type UserUncheckedCreateWithoutPropertiesInput = {
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserCreateOrConnectWithoutPropertiesInput = {
@@ -614,6 +660,8 @@ export type UserUpdateWithoutPropertiesInput = {
   applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPropertiesInput = {
@@ -631,6 +679,8 @@ export type UserUncheckedUpdateWithoutPropertiesInput = {
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type UserCreateWithoutRoommateProfileInput = {
@@ -648,6 +698,8 @@ export type UserCreateWithoutRoommateProfileInput = {
   applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateWithoutRoommateProfileInput = {
@@ -665,6 +717,8 @@ export type UserUncheckedCreateWithoutRoommateProfileInput = {
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserCreateOrConnectWithoutRoommateProfileInput = {
@@ -698,6 +752,8 @@ export type UserUpdateWithoutRoommateProfileInput = {
   applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRoommateProfileInput = {
@@ -715,6 +771,8 @@ export type UserUncheckedUpdateWithoutRoommateProfileInput = {
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type UserCreateWithoutViewingRequestsInput = {
@@ -732,6 +790,8 @@ export type UserCreateWithoutViewingRequestsInput = {
   roommateProfile?: Prisma.RoommateProfileCreateNestedOneWithoutUserInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateWithoutViewingRequestsInput = {
@@ -749,6 +809,8 @@ export type UserUncheckedCreateWithoutViewingRequestsInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedCreateNestedOneWithoutUserInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserCreateOrConnectWithoutViewingRequestsInput = {
@@ -782,6 +844,8 @@ export type UserUpdateWithoutViewingRequestsInput = {
   roommateProfile?: Prisma.RoommateProfileUpdateOneWithoutUserNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateWithoutViewingRequestsInput = {
@@ -799,6 +863,8 @@ export type UserUncheckedUpdateWithoutViewingRequestsInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedUpdateOneWithoutUserNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type UserCreateWithoutApplicationsInput = {
@@ -816,6 +882,8 @@ export type UserCreateWithoutApplicationsInput = {
   roommateProfile?: Prisma.RoommateProfileCreateNestedOneWithoutUserInput
   viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateWithoutApplicationsInput = {
@@ -833,6 +901,8 @@ export type UserUncheckedCreateWithoutApplicationsInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedCreateNestedOneWithoutUserInput
   viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
   tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserCreateOrConnectWithoutApplicationsInput = {
@@ -866,6 +936,8 @@ export type UserUpdateWithoutApplicationsInput = {
   roommateProfile?: Prisma.RoommateProfileUpdateOneWithoutUserNestedInput
   viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateWithoutApplicationsInput = {
@@ -883,6 +955,8 @@ export type UserUncheckedUpdateWithoutApplicationsInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedUpdateOneWithoutUserNestedInput
   viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
   tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type UserCreateWithoutTenanciesInput = {
@@ -900,6 +974,8 @@ export type UserCreateWithoutTenanciesInput = {
   roommateProfile?: Prisma.RoommateProfileCreateNestedOneWithoutUserInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
 }
 
 export type UserUncheckedCreateWithoutTenanciesInput = {
@@ -917,6 +993,8 @@ export type UserUncheckedCreateWithoutTenanciesInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedCreateNestedOneWithoutUserInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
   viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type UserCreateOrConnectWithoutTenanciesInput = {
@@ -950,6 +1028,8 @@ export type UserUpdateWithoutTenanciesInput = {
   roommateProfile?: Prisma.RoommateProfileUpdateOneWithoutUserNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTenanciesInput = {
@@ -967,6 +1047,192 @@ export type UserUncheckedUpdateWithoutTenanciesInput = {
   roommateProfile?: Prisma.RoommateProfileUncheckedUpdateOneWithoutUserNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
   viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type UserCreateWithoutBillSplitsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash?: string | null
+  googleId?: string | null
+  role?: $Enums.Role
+  phone?: string | null
+  isVerified?: boolean
+  createdAt?: Date | string
+  deletedAt?: Date | string | null
+  properties?: Prisma.PropertyCreateNestedManyWithoutOwnerInput
+  roommateProfile?: Prisma.RoommateProfileCreateNestedOneWithoutUserInput
+  applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
+  viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
+  tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestCreateNestedManyWithoutTenantInput
+}
+
+export type UserUncheckedCreateWithoutBillSplitsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash?: string | null
+  googleId?: string | null
+  role?: $Enums.Role
+  phone?: string | null
+  isVerified?: boolean
+  createdAt?: Date | string
+  deletedAt?: Date | string | null
+  properties?: Prisma.PropertyUncheckedCreateNestedManyWithoutOwnerInput
+  roommateProfile?: Prisma.RoommateProfileUncheckedCreateNestedOneWithoutUserInput
+  applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
+  viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
+  tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type UserCreateOrConnectWithoutBillSplitsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutBillSplitsInput, Prisma.UserUncheckedCreateWithoutBillSplitsInput>
+}
+
+export type UserUpsertWithoutBillSplitsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutBillSplitsInput, Prisma.UserUncheckedUpdateWithoutBillSplitsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutBillSplitsInput, Prisma.UserUncheckedCreateWithoutBillSplitsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutBillSplitsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutBillSplitsInput, Prisma.UserUncheckedUpdateWithoutBillSplitsInput>
+}
+
+export type UserUpdateWithoutBillSplitsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  properties?: Prisma.PropertyUpdateManyWithoutOwnerNestedInput
+  roommateProfile?: Prisma.RoommateProfileUpdateOneWithoutUserNestedInput
+  applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
+  viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
+  tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUpdateManyWithoutTenantNestedInput
+}
+
+export type UserUncheckedUpdateWithoutBillSplitsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  properties?: Prisma.PropertyUncheckedUpdateManyWithoutOwnerNestedInput
+  roommateProfile?: Prisma.RoommateProfileUncheckedUpdateOneWithoutUserNestedInput
+  applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
+  viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
+  tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  maintenanceRequests?: Prisma.MaintenanceRequestUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type UserCreateWithoutMaintenanceRequestsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash?: string | null
+  googleId?: string | null
+  role?: $Enums.Role
+  phone?: string | null
+  isVerified?: boolean
+  createdAt?: Date | string
+  deletedAt?: Date | string | null
+  properties?: Prisma.PropertyCreateNestedManyWithoutOwnerInput
+  roommateProfile?: Prisma.RoommateProfileCreateNestedOneWithoutUserInput
+  applications?: Prisma.ApplicationCreateNestedManyWithoutTenantInput
+  viewingRequests?: Prisma.ViewingRequestCreateNestedManyWithoutTenantInput
+  tenancies?: Prisma.TenancyCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitCreateNestedManyWithoutTenantInput
+}
+
+export type UserUncheckedCreateWithoutMaintenanceRequestsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash?: string | null
+  googleId?: string | null
+  role?: $Enums.Role
+  phone?: string | null
+  isVerified?: boolean
+  createdAt?: Date | string
+  deletedAt?: Date | string | null
+  properties?: Prisma.PropertyUncheckedCreateNestedManyWithoutOwnerInput
+  roommateProfile?: Prisma.RoommateProfileUncheckedCreateNestedOneWithoutUserInput
+  applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutTenantInput
+  viewingRequests?: Prisma.ViewingRequestUncheckedCreateNestedManyWithoutTenantInput
+  tenancies?: Prisma.TenancyUncheckedCreateNestedManyWithoutTenantInput
+  billSplits?: Prisma.BillSplitUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type UserCreateOrConnectWithoutMaintenanceRequestsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedCreateWithoutMaintenanceRequestsInput>
+}
+
+export type UserUpsertWithoutMaintenanceRequestsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedUpdateWithoutMaintenanceRequestsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedCreateWithoutMaintenanceRequestsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMaintenanceRequestsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMaintenanceRequestsInput, Prisma.UserUncheckedUpdateWithoutMaintenanceRequestsInput>
+}
+
+export type UserUpdateWithoutMaintenanceRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  properties?: Prisma.PropertyUpdateManyWithoutOwnerNestedInput
+  roommateProfile?: Prisma.RoommateProfileUpdateOneWithoutUserNestedInput
+  applications?: Prisma.ApplicationUpdateManyWithoutTenantNestedInput
+  viewingRequests?: Prisma.ViewingRequestUpdateManyWithoutTenantNestedInput
+  tenancies?: Prisma.TenancyUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUpdateManyWithoutTenantNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMaintenanceRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  properties?: Prisma.PropertyUncheckedUpdateManyWithoutOwnerNestedInput
+  roommateProfile?: Prisma.RoommateProfileUncheckedUpdateOneWithoutUserNestedInput
+  applications?: Prisma.ApplicationUncheckedUpdateManyWithoutTenantNestedInput
+  viewingRequests?: Prisma.ViewingRequestUncheckedUpdateManyWithoutTenantNestedInput
+  tenancies?: Prisma.TenancyUncheckedUpdateManyWithoutTenantNestedInput
+  billSplits?: Prisma.BillSplitUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 
@@ -979,6 +1245,8 @@ export type UserCountOutputType = {
   applications: number
   viewingRequests: number
   tenancies: number
+  billSplits: number
+  maintenanceRequests: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -986,6 +1254,8 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   applications?: boolean | UserCountOutputTypeCountApplicationsArgs
   viewingRequests?: boolean | UserCountOutputTypeCountViewingRequestsArgs
   tenancies?: boolean | UserCountOutputTypeCountTenanciesArgs
+  billSplits?: boolean | UserCountOutputTypeCountBillSplitsArgs
+  maintenanceRequests?: boolean | UserCountOutputTypeCountMaintenanceRequestsArgs
 }
 
 /**
@@ -1026,6 +1296,20 @@ export type UserCountOutputTypeCountTenanciesArgs<ExtArgs extends runtime.Types.
   where?: Prisma.TenancyWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountBillSplitsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BillSplitWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountMaintenanceRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MaintenanceRequestWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1043,6 +1327,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   applications?: boolean | Prisma.User$applicationsArgs<ExtArgs>
   viewingRequests?: boolean | Prisma.User$viewingRequestsArgs<ExtArgs>
   tenancies?: boolean | Prisma.User$tenanciesArgs<ExtArgs>
+  billSplits?: boolean | Prisma.User$billSplitsArgs<ExtArgs>
+  maintenanceRequests?: boolean | Prisma.User$maintenanceRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1092,6 +1378,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   applications?: boolean | Prisma.User$applicationsArgs<ExtArgs>
   viewingRequests?: boolean | Prisma.User$viewingRequestsArgs<ExtArgs>
   tenancies?: boolean | Prisma.User$tenanciesArgs<ExtArgs>
+  billSplits?: boolean | Prisma.User$billSplitsArgs<ExtArgs>
+  maintenanceRequests?: boolean | Prisma.User$maintenanceRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1105,6 +1393,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     applications: Prisma.$ApplicationPayload<ExtArgs>[]
     viewingRequests: Prisma.$ViewingRequestPayload<ExtArgs>[]
     tenancies: Prisma.$TenancyPayload<ExtArgs>[]
+    billSplits: Prisma.$BillSplitPayload<ExtArgs>[]
+    maintenanceRequests: Prisma.$MaintenanceRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1516,6 +1806,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   applications<T extends Prisma.User$applicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   viewingRequests<T extends Prisma.User$viewingRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$viewingRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ViewingRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tenancies<T extends Prisma.User$tenanciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tenanciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TenancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  billSplits<T extends Prisma.User$billSplitsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$billSplitsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BillSplitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  maintenanceRequests<T extends Prisma.User$maintenanceRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$maintenanceRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MaintenanceRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2060,6 +2352,54 @@ export type User$tenanciesArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.TenancyScalarFieldEnum | Prisma.TenancyScalarFieldEnum[]
+}
+
+/**
+ * User.billSplits
+ */
+export type User$billSplitsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BillSplit
+   */
+  select?: Prisma.BillSplitSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BillSplit
+   */
+  omit?: Prisma.BillSplitOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BillSplitInclude<ExtArgs> | null
+  where?: Prisma.BillSplitWhereInput
+  orderBy?: Prisma.BillSplitOrderByWithRelationInput | Prisma.BillSplitOrderByWithRelationInput[]
+  cursor?: Prisma.BillSplitWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BillSplitScalarFieldEnum | Prisma.BillSplitScalarFieldEnum[]
+}
+
+/**
+ * User.maintenanceRequests
+ */
+export type User$maintenanceRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MaintenanceRequest
+   */
+  select?: Prisma.MaintenanceRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MaintenanceRequest
+   */
+  omit?: Prisma.MaintenanceRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MaintenanceRequestInclude<ExtArgs> | null
+  where?: Prisma.MaintenanceRequestWhereInput
+  orderBy?: Prisma.MaintenanceRequestOrderByWithRelationInput | Prisma.MaintenanceRequestOrderByWithRelationInput[]
+  cursor?: Prisma.MaintenanceRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MaintenanceRequestScalarFieldEnum | Prisma.MaintenanceRequestScalarFieldEnum[]
 }
 
 /**

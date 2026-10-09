@@ -64,3 +64,40 @@ export const PaymentStatus = {
 } as const
 
 export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
+
+
+export const BillType = {
+  ELECTRICITY: 'ELECTRICITY',
+  WATER: 'WATER',
+  GAS: 'GAS',
+  INTERNET: 'INTERNET'
+} as const
+
+export type BillType = (typeof BillType)[keyof typeof BillType]
+
+
+export const SplitStatus = {
+  PENDING: 'PENDING',
+  PAID: 'PAID'
+} as const
+
+export type SplitStatus = (typeof SplitStatus)[keyof typeof SplitStatus]
+
+
+export const MaintenancePriority = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH'
+} as const
+
+export type MaintenancePriority = (typeof MaintenancePriority)[keyof typeof MaintenancePriority]
+
+
+export const MaintenanceStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  RESOLVED: 'RESOLVED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus]
