@@ -4,6 +4,7 @@ import propertyRoutes from "../../modules/property/property.routes.js";
 import { propertyNestedRouter, roomRouter } from "../../modules/room/room.routes.js";
 import { userRoommateRouter, matchRouter } from "../../modules/roommate/roommate.routes.js";
 import viewingRoutes from "../../modules/viewing/viewing.routes.js";
+import applicationRoutes from "../../modules/application/application.routes.js";
 const router = Router();
 
 router.use("/auth",authRoutes)
@@ -13,5 +14,6 @@ router.use("/rooms", roomRouter);
 router.use("/users", userRoommateRouter);
 router.use("/matches", matchRouter);
 router.use("/viewing-requests", viewingRoutes);
+router.use("/applications", applicationRoutes);
 
 export default router;
