@@ -7,6 +7,9 @@ import viewingRoutes from "../../modules/viewing/viewing.routes.js";
 import applicationRoutes from "../../modules/application/application.routes.js";
 import paymentRoutes from "../../modules/payment/payment.routes.js";
 import { roomBillRouter, billRouter, splitRouter } from "../../modules/bill/bill.routes.js";
+import maintenanceRoutes from "../../modules/maintenance/maintenance.routes.js";
+
+
 const router = Router();
 
 router.use("/auth",authRoutes)
@@ -21,4 +24,5 @@ router.use("/payments", paymentRoutes);
 router.use("/rooms", roomBillRouter); 
 router.use("/utility-bills", billRouter);
 router.use("/bill-splits", splitRouter);
+router.use("/maintenance-requests", maintenanceRoutes);
 export default router;
