@@ -5,7 +5,7 @@ export const registerSchema = z.object({
     name: z.string().min(2),
     email: z.string().email(),
     password: z.string().min(6),
-    role: z.enum(["OWNER", "TENANT"]).default("TENANT"),
+    role: z.enum(["ADMIN","OWNER", "TENANT"]).default("TENANT"),
   }),
 });
 
@@ -19,6 +19,6 @@ export const loginSchema = z.object({
 export const googleLoginSchema = z.object({
   body: z.object({
     idToken: z.string().min(10),
-    role: z.enum(["OWNER", "TENANT"]).default("TENANT"),
+    role: z.enum(["ADMIN","OWNER", "TENANT"]).default("TENANT"),
   }),
 });

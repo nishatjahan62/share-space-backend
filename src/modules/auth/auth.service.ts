@@ -4,7 +4,7 @@ import { prisma } from "../../config/prisma.js";
 import { ApiError } from "../../../src/utils/ApiError.js";
 import { signAccessToken, signRefreshToken, verifyRefreshToken } from "../../../src/utils/token.js";
 
-export const registerUser = async (name: string, email: string, password: string, role: "OWNER" | "TENANT") => {
+export const registerUser = async (name: string, email: string, password: string, role: "ADMIN"| "OWNER" | "TENANT") => {
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) throw new ApiError(409, "Email already registered");
 
