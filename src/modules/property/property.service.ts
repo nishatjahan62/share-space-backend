@@ -6,28 +6,43 @@ export const createProperty = (ownerId: string, data: { title: string; address: 
   prisma.property.create({ data: { ...data, ownerId } });
 
 export const listProperties = async (query: {
-  page?: string; limit?: string; city?: string; minRent?: string; maxRent?: string; sortBy?: string;
+  page?: string; limit?: string; q?: string; city?: string; minRent?: string; maxRent?: string; sortBy?: string;
 }) => {
   const { skip, take, pageNum, limitNum } = getPagination(query.page, query.limit);
 
   const where = {
     deletedAt: null,
+    ...(query.q && {
+      OR: [
+        { title: { contains: query.q, mode: "insensitive" as const } },
+        { address: { contains: query.q, mode: "insensitive" as const } },
+        { city: { contains: query.q, mode: "insensitive" as const } },
+      ],
+    }),
     ...(query.city && { city: { equals: query.city, mode: "insensitive" as const } }),
     ...(query.minRent || query.maxRent
-      ? { rooms: { some: {
-          rentAmount: {
-            ...(query.minRent && { gte: Number(query.minRent) }),
-            ...(query.maxRent && { lte: Number(query.maxRent) }),
+      ? {
+          rooms: {
+            some: {
+              rentAmount: {
+                ...(query.minRent && { gte: Number(query.minRent) }),
+                ...(query.maxRent && { lte: Number(query.maxRent) }),
+              },
+            },
           },
-        } } }
+        }
       : {}),
   };
 
+  const sortBy = query.sortBy === "title" ? "title" : "createdAt";
+
   const [items, total] = await Promise.all([
     prisma.property.findMany({
-      where, skip, take,
-      orderBy: { [query.sortBy || "createdAt"]: "desc" },
-      include: { rooms: true },
+      where,
+      skip,
+      take,
+      orderBy: { [sortBy]: sortBy === "title" ? "asc" : "desc" },
+      include: { rooms: { where: { deletedAt: null } } },
     }),
     prisma.property.count({ where }),
   ]);

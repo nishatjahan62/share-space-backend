@@ -10,6 +10,7 @@ import { roomBillRouter, billRouter, splitRouter } from "../../modules/bill/bill
 import maintenanceRoutes from "../../modules/maintenance/maintenance.routes.js";
 import adminRoutes from "../../modules/admin/admin.routes.js";
 import userRoutes from "../../modules/user/user.routes.js";
+import contactRoutes from "../../modules/contact/contact.routes.js";
 
 const router = Router();
 
@@ -28,6 +29,6 @@ router.use("/bill-splits", splitRouter);
 router.use("/maintenance-requests", maintenanceRoutes);
 router.use("/admin", adminRoutes);
 router.use("/users", userRoutes);
-
+router.use("/contact", contactRoutes);
 
 export default router;

@@ -27,5 +27,6 @@ export const listPropertiesSchema = z.object({
     minRent: z.string().optional(),
     maxRent: z.string().optional(),
     sortBy: z.enum(["createdAt", "title"]).optional(),
+        q: z.string().optional(),
   }),
 });

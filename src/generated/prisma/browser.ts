@@ -77,3 +77,8 @@ export type MaintenanceRequest = Prisma.MaintenanceRequestModel
  * 
  */
 export type AuditLog = Prisma.AuditLogModel
+/**
+ * Model ContactMessage
+ * 
+ */
+export type ContactMessage = Prisma.ContactMessageModel

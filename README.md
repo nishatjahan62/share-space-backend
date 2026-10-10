@@ -1,9 +1,11 @@
 # ShareSpace — Housing & Roommate Management API
 
-Backend REST API where owners list properties and rooms, tenants search, match with roommates, request viewings, apply, and pay rent, with a transaction-safe booking workflow.
+ShareSpace is a RESTful backend API for a room rental and roommate management platform built with Node.js, TypeScript, Express.js, PostgreSQL, and Prisma ORM.
+The API provides a structured system for tenants to discover rental rooms, submit rental applications, request property viewings, manage tenancies, make rent payments, split utility bills, and submit maintenance requests.
+
 
 - **Live API:** `https://share-space-backend.onrender.com/`
-- **API Docs:** `<Postman documenter link>`
+- **API Docs:** `https://documenter.getpostman.com/view/52459423/2sBYHQ2P4P`
 - **Demo Video:** `<video link>`
 - **Repo:** https://github.com/nishatjahan62/share-space-backend
 
